@@ -1,24 +1,21 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Country from './components/Country';
+import NeighbourCountry from './components/NeighbourCountry';
 
 function App() {
+  const [border,setBorder] = useState(null);
+
+  console.log(border)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='parent'>
+       <div className="App">
+          <Country setBorder={setBorder}/>
+
+          {border && <NeighbourCountry border={border}/>}
+        </div>
     </div>
+   
   );
 }
 
